@@ -18,6 +18,8 @@ app.get('/', (req, res) => {
     res.send('Welcome to the backend API');
   });
 
+// now connect
+
 // Routes
 app.use("/api/auth", authRoutes);
 
