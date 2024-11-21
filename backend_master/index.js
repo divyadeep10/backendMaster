@@ -25,9 +25,9 @@ app.use("/api/auth", authRoutes);
 
 // CORS Middleware - Allowing requests only from your frontend URL
 app.use(cors({
-  origin: "*",  // Allow only this frontend URL
-  methods: "GET, POST, PUT, DELETE",  // Allow the necessary HTTP methods
-  allowedHeaders: "Content-Type, Authorization", // Allow these headers in the request
+  origin: "*",  // Replace "*" with your frontend URL if you want to restrict origins
+  methods: "GET, POST, PUT, DELETE",
+  allowedHeaders: "Content-Type, Authorization",
 }));
 
 // Error handling middleware
