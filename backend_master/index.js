@@ -25,7 +25,7 @@ app.use("/api/auth", authRoutes);
 
 // CORS Middleware - Allowing requests only from your frontend URL
 app.use(cors({
-  origin: "https://code-master-learning-ahst.vercel.app",  // Allow only this frontend URL
+  origin: "*",  // Allow only this frontend URL
   methods: "GET, POST, PUT, DELETE",  // Allow the necessary HTTP methods
   allowedHeaders: "Content-Type, Authorization", // Allow these headers in the request
 }));
