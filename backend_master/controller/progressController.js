@@ -1,18 +1,35 @@
 const User = require("../models/user");
 
-// Fetch user progress
 const getProgress = async (req, res) => {
-  try {
-    const user = await User.findById(req.user.id).select("solvedQuestions dailyStreak accuracy learningRate");
-    if (!user) {
-      return res.status(404).json({ message: "User not found" });
+    try {
+      const user = await User.findById(req.user.id).select("solvedQuestions dailyStreak accuracy learningRate");
+      if (!user) {
+        return res.status(404).json({ message: "User not found" });
+      }
+  
+      // Calculate completion progress based on available data
+      const completionPercentage = calculateCompletionPercentage(user); // Implement this function based on your progress logic
+      const totalChallenges = 20; // Example, replace with actual data logic
+      const completedChallenges = user.solvedQuestions; // Example, replace with actual logic
+      const inProgressChallenges = totalChallenges - completedChallenges; // Example, replace with actual logic
+  
+      // Send transformed data
+      res.status(200).json({
+        totalChallenges,
+        completedChallenges,
+        inProgressChallenges,
+        completionPercentage,
+      });
+    } catch (error) {
+      console.error("Error fetching progress:", error);
+      res.status(500).json({ message: "Internal server error" });
     }
-    res.status(200).json(user);
-  } catch (error) {
-    console.error("Error fetching progress:", error);
-    res.status(500).json({ message: "Internal server error" });
+  };
+  
+  function calculateCompletionPercentage(user) {
+    // Implement logic for calculating completion percentage
+    return (user.solvedQuestions / 20) * 100; // Example calculation
   }
-};
 
 // Update user progress
 const updateProgress = async (req, res) => {
