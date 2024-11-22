@@ -3,6 +3,7 @@ const dotenv = require("dotenv");
 const cors = require("cors");
 const connectDB = require("./config/database");
 const authRoutes = require("./routes/authRoutes");
+const progressRoutes = require("./routes/progressRoutes");
 const errorHandler = require("./middleware/errormiddleware");
 
 dotenv.config();
@@ -22,6 +23,7 @@ app.get('/', (req, res) => {
 
 // Routes
 app.use("/api/auth", authRoutes);
+app.use("/api/progress", progressRoutes);
 
 // CORS Middleware - Allowing requests only from your frontend URL
 app.use(cors({
