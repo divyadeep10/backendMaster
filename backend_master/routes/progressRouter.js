@@ -8,6 +8,6 @@ const router = express.Router();
 router.get('/getp/:userId', getProgress);
 
 // Route to update progress
-router.put('/updatep/:userId', verifyToken, updateProgress);
+router.put('/updatep/:userId', updateProgress);
 
 module.exports = router;

@@ -17,12 +17,12 @@ exports.getProgress = async (req, res) => {
 // Update progress for a user
 exports.updateProgress = async (req, res) => {
     const { questionsSolved, streak } = req.body;
-
+    const { userId } = req.params;
     try {
-        let progress = await Progress.findOne({ user: req.user.id });
+        let progress = await Progress.findOne({ user: userId });
 
         if (!progress) {
-            progress = new Progress({ user: req.user.id });
+            progress = new Progress({ user: userId });
         }
 
         progress.questionsSolved += questionsSolved;
