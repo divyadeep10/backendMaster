@@ -5,7 +5,7 @@ const verifyToken = require('../middleware/verifyToken');
 const router = express.Router();
 
 // Route to get progress
-router.get('/getp', verifyToken, getProgress);
+router.get('/getp:userId', getProgress);
 
 // Route to update progress
 router.put('/updatep', verifyToken, updateProgress);
