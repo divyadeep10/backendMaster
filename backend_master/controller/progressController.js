@@ -1,9 +1,5 @@
 const Progress = require('../models/progress');
 
-// In progressController.js
-console.log('Fetching progress for user:', req.params.userId);
-
-
 // Get progress for a user
 exports.getProgress = async (req, res) => {
     try {
