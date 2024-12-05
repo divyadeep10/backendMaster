@@ -4,6 +4,9 @@ const cors = require("cors");
 const connectDB = require("./config/database");
 const authRoutes = require("./routes/authRoutes");
 const errorHandler = require("./middleware/errormiddleware");
+const progressUpdate = require("./routes/progressUpdate");
+const checker = require("./routes/checkerQuestion");
+const getprogress = require("./routes/getProgress");
 
 dotenv.config();
 connectDB();
@@ -22,6 +25,9 @@ app.get('/', (req, res) => {
 
 // Routes
 app.use("/api/auth", authRoutes);
+app.use("/api/progress", progressUpdate);
+app.use("/api/progress/ch", checker);
+app.use("/api/progress/getprogress",getprogress);
 
 // CORS Middleware - Allowing requests only from your frontend URL
 app.use(cors({
