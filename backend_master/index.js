@@ -29,7 +29,10 @@ app.use("/api/auth", authRoutes);
 app.use("/api/progress", progressUpdate);
 app.use("/api/progress/ch", checker);
 app.use("/api/progress/getprogress",getprogress);
-app.use("/api/leaderboard/getleaderboard",getleaderboard);
+app.use("/api/leaderboard/getleaderboard", (req, res, next) => {
+  console.log("Request received for leaderboard");
+  next();  // Pass control to the next route handler
+});
 
 // CORS Middleware - Allowing requests only from your frontend URL
 app.use(cors({
