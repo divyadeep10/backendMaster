@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Progress = require("./models/progress");
 
-router.get("/getleaderboard", async (req, res) => {
+router.get("/", async (req, res) => {
     try {
       const leaderboard = await Progress.find({})
         .sort({ questionsSolved: -1 }) // Sort by questionsSolved in descending order
