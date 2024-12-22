@@ -7,10 +7,10 @@ const errorHandler = require("./middleware/errormiddleware");
 const progressUpdate = require("./routes/progressUpdate");
 const checker = require("./routes/checkerQuestion");
 const getprogress = require("./routes/getProgress");
-
+const getleaderboard = require("./routes/leaderBoard");
 dotenv.config();
 connectDB();
-
+// added 
 const app = express();
 
 // Middleware
@@ -28,6 +28,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api/progress", progressUpdate);
 app.use("/api/progress/ch", checker);
 app.use("/api/progress/getprogress",getprogress);
+app.use("/api/leaderboard",getleaderboard);
 
 // CORS Middleware - Allowing requests only from your frontend URL
 app.use(cors({
