@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const Progress = require("./models/progress");
+const Progress = require("../models/progress");
 
 router.get("/", async (req, res) => {
     try {
