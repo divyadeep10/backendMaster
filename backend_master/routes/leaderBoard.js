@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const Progress = require("./models/Progress");
 
 router.get("/getleaderboard", async (req, res) => {
     try {
